@@ -13,10 +13,10 @@ namespace Naidis_csharp
         {
             {
                 Console.OutputEncoding = Encoding.UTF8;
-                Console.WriteLine("1. Osa ´Anmdetüübid");
+                Console.WriteLine("1. Osa Anmdetüübid");
                 string text = "Tere tulemast c#-i mailmaa!";
                 Console.WriteLine($"Oli loodud muutuja tekst,mis võrdub: {text}");
-                Console.Write("mis on sinu nimi: ");
+                /*Console.Write("mis on sinu nimi: ");
                 string nimi = Console.ReadLine();
                 Console.WriteLine("kui vana sa oled?: ");
                 
@@ -36,8 +36,18 @@ namespace Naidis_csharp
                 catch (Exception e)
                 {
                     Console.WriteLine(e);
+                }*/
 
-                }
+
+
+                Random rnd = new Random();
+                int juhuslik_arv = rnd.Next(-5, 25);
+                Console.WriteLine(Naidis_funktsioon.Kuu_nimetus(juhuslik_arv));
+                juhuslik_arv = rnd.Next(-5, 25);
+                text = Naidis_funktsioon.Kuu_nimetus(juhuslik_arv);
+                Console.WriteLine(text);
+
+                Console.Write(osa2.Juku());
             }
 
         }
