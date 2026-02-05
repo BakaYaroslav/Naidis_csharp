@@ -38,10 +38,6 @@ namespace Naidis_csharp
                     Console.WriteLine(e);
 
                 }
-
-               
-
-
             }
 
         }
