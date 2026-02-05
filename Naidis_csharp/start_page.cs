@@ -46,8 +46,8 @@ namespace Naidis_csharp
                 juhuslik_arv = rnd.Next(-5, 25);
                 text = Naidis_funktsioon.Kuu_nimetus(juhuslik_arv);
                 Console.WriteLine(text);
-
-                Console.Write(osa2.Juku());
+                
+                osa2.Juku();
             }
 
         }
