@@ -63,9 +63,63 @@ namespace Naidis_csharp
             return hoo;
         }
 
-        
+        public static void MuudaElement(int[] arvud)
+        {
+            Console.Write("Elemendi pos:  ");
+            int pos = int.Parse(Console.ReadLine());
+            Console.Write("milleks:  ");
+            int uus_arv = int.Parse(Console.ReadLine());
+            arvud[pos -1] = uus_arv;
+
+            for (int i = 0; i < arvud.Length; i++)
+            {
+                Console.WriteLine($"Uuendatud masiiv: {arvud[i]} ");
+            }
+        }
+
+        public static int[] Täida_massiiv(int[] arvud)
+        {
+
+            for (int i = 1; i < arvud.Length; i++)
+            {
+
+                Console.WriteLine($"sisesta {i}. arv: ");
+                try
+                {
+                    arvud[i] = int.Parse(Console.ReadLine());
+                }
+                catch (Exception e)
+                {
+
+                    Console.WriteLine(e);
+                }
+
+            }
+            return arvud;
 
         }
+        public static void foreachFunktisoon(int[] arvud)
+        {
+            foreach (int arv in arvud)
+            {
+                Console.WriteLine($"sisestatud arv: {arv}");
+            }
+
+        }
+        public static void Vahemalt(int[] arvud)
+        {
+            Console.WriteLine("foreach abil: 0->4");
+            for (int i = 0; i < arvud.Length; i++)
+            {
+                Console.WriteLine($"sisestatud arv: {arvud[i]}");
+            }
+
+
+
+
+        }
+
+    }
     }
 
 
