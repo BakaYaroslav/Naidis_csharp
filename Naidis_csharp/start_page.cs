@@ -132,7 +132,7 @@ namespace Naidis_csharp
             int[] arvud = new int[5];
             while (true) { 
                     Console.WriteLine("2. Osa Funktsioonid");
-                    Console.WriteLine("vali funktioon \n1. Juku \n2. pinginabrid\n3. pindala\n4. soodus\n5. tem\n6. pikk\n7. pood\n8. MuudaElement\n9. Täida_massiiv\n10. foreachFunktisoon\n11. exit ");
+                    Console.WriteLine("vali funktioon \n1. Juku \n2. pinginabrid\n3. pindala\n4. soodus\n5. tem\n6. pikk\n7. pood\n8. MuudaElement\n9. Täida_massiiv\n10. foreachFunktisoon\n11. GenereeriRuudud\n12. exit ");
                     string valik = Console.ReadLine();
                     if (valik == "1")
                     {
@@ -181,23 +181,34 @@ namespace Naidis_csharp
                     else if (valik == "9")
                     {
 
-                    
                         Naidis_funktsioon.Täida_massiiv(arvud);
-               
-
                     }
                     else if (valik == "10")
                     {
-
-
-                
                         Naidis_funktsioon.foreachFunktisoon(arvud);
-
                     }
                 else if (valik == "11")
                     {
-                        break;
+
+                    osa3.GenereeriRuudud();
+
                     }
+                else if (valik == "12")
+                {
+                    osa3.arvuAnaluus();
+                }
+                else if (valik == "13")
+                {
+                    osa3.ostsElevantAra();
+                }
+                else if (valik == "14")
+                {
+                    osa3.arvumang();
+                }
+                else if (valik == "15")
+                {
+                    osa3.SuurimNeliarv();
+                }
                 else
 
                 {

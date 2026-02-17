@@ -21,5 +21,6 @@ namespace Naidis_csharp
         {
             Console.WriteLine($"Tere, minu numi on {Nimi}");
         }
+        
     }
 }
