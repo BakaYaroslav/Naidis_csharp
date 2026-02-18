@@ -169,8 +169,8 @@ namespace Naidis_csharp
                 if (ost.ToLower() == "piim" || ost == "sai" || ost == "leib")
                 {
 
-                 tulemus += prices[i] * mitu;
-                   
+                    tulemus += prices[i] * mitu;
+
                 }
                 Console.WriteLine($"sa ostsid {products[i]} hinnaga {prices[i] * mitu}");
             }
@@ -178,6 +178,7 @@ namespace Naidis_csharp
 
         }
 
-    }
 
+     
+    }
 }

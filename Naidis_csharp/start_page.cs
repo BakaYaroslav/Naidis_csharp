@@ -199,8 +199,6 @@ namespace Naidis_csharp
                     var tulemus =  osa3.arvuAnaluus(arvudMasiiv);
                     Console.WriteLine($"summa: {tulemus.Item1}, keskmine: {tulemus.Item2}, Korrutis: {tulemus.Item3}");
 
-                    var (summa, keskmine, korrutis) = osa3.arvuAnaluus(arvud);
-
                 }
                 else if (valik == "13")
                 {
@@ -213,6 +211,12 @@ namespace Naidis_csharp
                 else if (valik == "15")
                 {
                     osa3.SuurimNeliarv();
+                }
+                else if (valik == "16")
+                {
+                    Console.WriteLine("Korrutustabel: ");
+                    osa3.GenereeriKorrutustabel(10, 10);
+                   
                 }
                 else
 

@@ -9,10 +9,10 @@ namespace Naidis_csharp
 {
     internal class osa3
     {
+        static Random rnd = new Random();
+
         public static int[] GenereeriRuudud(int min, int max)
         {
-            Random rnd = new Random();
-           
 
             int N = rnd.Next(min, max);
             int M = rnd.Next(min, max);
@@ -20,14 +20,14 @@ namespace Naidis_csharp
             int start = Math.Min(N, M);
             int end = Math.Max(N, M);
             Console.WriteLine($"{start}, {end}, {end - start + 1}");
-            int[] masiiv = new int[end - start+1];
+            int[] masiiv = new int[end - start + 1];
             for (int i = start; i <= end; i++)
             {
-                masiiv[i-start] = i * i;
+                masiiv[i - start] = i * i;
             }
             return masiiv;
         }
-        public static Tuple<double,double,double> arvuAnaluus(double[] arvud)
+        public static Tuple<double, double, double> arvuAnaluus(double[] arvud)
         {
             double sum = arvud.Sum();
             double keskmine = arvud.Average();
@@ -35,7 +35,7 @@ namespace Naidis_csharp
 
             foreach (double arv in arvud)
             {
-               
+
                 korrutis *= arv;
 
             }
@@ -52,7 +52,7 @@ namespace Naidis_csharp
 
         public static void ostsElevantAra()
         {
-            string vastus = "";
+            string vastus;
             do
             {
                 Console.WriteLine("Osts elevant ära");
@@ -82,7 +82,7 @@ namespace Naidis_csharp
 
         public static void arvumang()
         {
-            Random rnd = new Random();
+           
             int arv = rnd.Next(1, 101);
             int katse = 0;
             for (int i = 0; i < 5; i++)
@@ -114,7 +114,7 @@ namespace Naidis_csharp
             double[] arvud = new double[4];
             for (int i = 0; i < arvud.Length; i++)
             {
-             
+
                 Console.Write($"Sisesta {i + 1}. arv: ");
                 int arvu = int.Parse(Console.ReadLine());
 
@@ -124,6 +124,121 @@ namespace Naidis_csharp
                     string tulemus = string.Join(", ", arvud);
                 }
             }
+        }
+        public static int[,] GenereeriKorrutustabel(int ridadeArv, int veergudeArv)
+        {
+            int[,] tabel = new int[ridadeArv, veergudeArv];
+            for (int i = 0; i < ridadeArv; i++)
+            {
+                for (int j = 0; j < veergudeArv; j++)
+                {
+                    tabel[i, j] = (i + 1) * (j + 1);
+                    Console.Write(tabel[i, j].ToString().PadLeft(5));
+                }
+                Console.WriteLine(); // Uus rida pärast iga rea täitmist
+            }
+            return tabel;
+        }
+
+        public static void arvudRuudud()
+        {
+            int[] arvud = { 2, 4, 6, 8, 10, 12 };
+            for (int i = 0; i < arvud.Length; i++)
+            {
+                Console.WriteLine($"arv: {arvud[i]} ruut: {arvud[i] * arvud[i]}");
+            }
+            foreach (int arv in arvud)
+            {
+                Console.WriteLine($"arv: {arv} ruut: {arv * 2}");
+            }
+            while (true)
+            {
+                int i = 0;
+                int count = 0;
+
+                while (i < arvud.Length)
+                {
+                    if (arvud[i] % 3 == 0) // 0 kui on õige
+                    {
+                        count++;
+                    }
+
+                    i++;
+                }
+
+                Console.WriteLine("Jagab 3: " + count);
+
+            }
+
+
+        }
+        public static void Positiivsed_ja_negatiivsed()
+        {
+            int[] arvud = { 5, -3, 0, 8, -1, 4, -7, 2, 0, -5, 6, 9 };
+
+            int positiivsed = 0;
+            int negatiivsed = 0;
+            int nullid = 0;
+            foreach (int arv in arvud)
+            {
+                if (arv > 0)
+                {
+                    positiivsed++;
+                }
+                else if (arv < 0)
+                {
+                    negatiivsed++;
+                }
+                else
+                {
+                    nullid++;
+                }
+
+            }
+            Console.WriteLine($"Positiivsed: {positiivsed}");
+            Console.WriteLine($"Negatiivsed: {negatiivsed}");
+            Console.WriteLine($"Nullid: {nullid}");
+        }
+
+        public static void rohkemkuiKeskmine()
+        {
+            int arvu = rnd.Next(1, 101);
+            int[] arvud = new int[15];
+            int summa = 0;
+            foreach (int arv in arvud)
+            {
+                summa += arv;
+            }
+            double keskmine = summa / arvud.Length;
+            Console.WriteLine($"Keskmine: {keskmine}");
+            Console.WriteLine("Arvud, mis on suuremad kui keskmine:");
+            foreach (int arv in arvud)
+            {
+                if (arv > keskmine)
+                {
+                    Console.WriteLine(arv);
+                }
+            }
+        }
+        public static void suurimJaIndeks()
+        {
+            int[] numbrid = { 12, 56, 78, 2, 90, 43, 88, 67 };
+
+            int max = numbrid[0]; // Eeldame, et esimene element on suurim
+            int index = 0;
+
+            for (int i = 1; i < numbrid.Length; i++)
+            {
+                if (numbrid[i] > max)
+                {
+                    max = numbrid[i]; // Uuendame suurimat väärtust
+                    index = i;
+                }
+            }
+
+            Console.WriteLine("surim: " + max);
+            Console.WriteLine("indeks: " + index);
+
         }
     }
 }
