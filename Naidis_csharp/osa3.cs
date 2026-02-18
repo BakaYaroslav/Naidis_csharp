@@ -9,48 +9,42 @@ namespace Naidis_csharp
 {
     internal class osa3
     {
-        public static void GenereeriRuudud()
+        public static int[] GenereeriRuudud(int min, int max)
         {
             Random rnd = new Random();
-            int min = 1;
-            int max = 10;
+           
 
-            int N = rnd.Next(min, max + 1);
-            int M = rnd.Next(min, max + 1);
+            int N = rnd.Next(min, max);
+            int M = rnd.Next(min, max);
 
             int start = Math.Min(N, M);
             int end = Math.Max(N, M);
-
-
+            Console.WriteLine($"{start}, {end}, {end - start + 1}");
+            int[] masiiv = new int[end - start+1];
             for (int i = start; i <= end; i++)
             {
-                int ruut = i * i;
-                Console.WriteLine($"{i} - {ruut}");
+                masiiv[i-start] = i * i;
             }
-
+            return masiiv;
         }
-        public static void arvuAnaluus()
+        public static Tuple<double,double,double> arvuAnaluus(double[] arvud)
         {
-            double sum = 0;
+            double sum = arvud.Sum();
+            double keskmine = arvud.Average();
             double korrutis = 1;
-            double keskmine = 0;
-            double[] arvud = new double[5];
-            for (int i = 0; i < arvud.Length; i++)
+
+            foreach (double arv in arvud)
             {
-                Console.Write($"Sisesta {i + 1}. arv: ");
-                arvud[i] = double.Parse(Console.ReadLine());
-                korrutis *= arvud[i];
-                sum += arvud[i];
+               
+                korrutis *= arv;
 
             }
-
-            keskmine = sum / arvud.Length;
-
             string tulemus = string.Join(", ", arvud);
             Console.WriteLine($"Sa sisetatud: {tulemus}");
             Console.WriteLine($"Sum: {sum}");
             Console.WriteLine($"Korrutis: {korrutis}");
             Console.WriteLine($"Keskmine: {keskmine}");
+            return Tuple.Create(sum, keskmine, korrutis);
 
 
         }
@@ -58,10 +52,18 @@ namespace Naidis_csharp
 
         public static void ostsElevantAra()
         {
+            string vastus = "";
+            do
+            {
+                Console.WriteLine("Osts elevant ära");
+                vastus = Console.ReadLine().ToLower();
+
+            } while (vastus != "jah");
+
             while (true)
             {
                 Console.WriteLine("Osts elevant ära");
-                string vastus = Console.ReadLine().ToLower();
+                vastus = Console.ReadLine().ToLower();
                 if (vastus == "jah")
                 {
                     Console.WriteLine("Oled ostnud elevandi!");
@@ -108,14 +110,18 @@ namespace Naidis_csharp
         public static void SuurimNeliarv()
         {
             Console.WriteLine("Sisesta neli arvu:");
+
             double[] arvud = new double[4];
             for (int i = 0; i < arvud.Length; i++)
             {
+             
                 Console.Write($"Sisesta {i + 1}. arv: ");
+                int arvu = int.Parse(Console.ReadLine());
+
 
                 foreach (double arv in arvud)
                 {
-                    Console.WriteLine(arv);
+                    string tulemus = string.Join(", ", arvud);
                 }
             }
         }

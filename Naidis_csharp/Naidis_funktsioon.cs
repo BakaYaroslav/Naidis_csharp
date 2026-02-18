@@ -97,7 +97,29 @@ namespace Naidis_csharp
             }
             return arvud;
 
+
         }
+        public static double[] Täida_Doublemassiiv(double[] arvud)
+        {
+
+            for (int i = 1; i < arvud.Length; i++)
+            {
+
+                Console.WriteLine($"sisesta {i}. arv: ");
+                try
+                {
+                    arvud[i] = Convert.ToDouble(Console.ReadLine());
+                }
+                catch (Exception e)
+                {
+
+                    Console.WriteLine(e);
+                }
+
+            }
+            return arvud;
+        }
+
         public static void foreachFunktisoon(int[] arvud)
         {
             foreach (int arv in arvud)
@@ -113,13 +135,12 @@ namespace Naidis_csharp
             {
                 Console.WriteLine($"sisestatud arv: {arvud[i]}");
             }
-
-
-
+        }
+ 
 
         }
 
     }
-    }
+    
 
 
