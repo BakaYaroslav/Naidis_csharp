@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
+using System.Threading.Channels;
 using System.Threading.Tasks;
 
 namespace Naidis_csharp
@@ -48,7 +50,15 @@ namespace Naidis_csharp
 
 
         }
-
+        public static Tuple<int, double, Inimene, Inimene> Statistika(List<Inimene> inimesed)
+        {
+            int summa = inimesed.Sum(i=>i.Vanus);
+            double keskmine = inimesed.Average(i => i.Vanus);
+            Inimene vanim = inimesed.OrderByDescending(i => i.Vanus).First();
+            Inimene noorim = inimesed.OrderBy(i => i.Vanus).First();
+            return Tuple.Create(summa, keskmine, vanim, noorim);
+        }
+       
 
         public static void ostsElevantAra()
         {
@@ -139,6 +149,44 @@ namespace Naidis_csharp
             }
             return tabel;
         }
+
+        public static void ÕpilastegaMängimine(string[] nimed)
+        {
+            
+            Console.Write("milleks:  ");
+            string nimi = Console.ReadLine();
+            nimed[2] = nimi;
+            nimed[5] = "Mati";
+            int i = 0;
+                while (i<nimed.Length)
+            {
+                if (nimed[i].StartsWith("A"))
+                {
+                    Console.WriteLine($"Tere, {nimed[i]}!");
+                }
+                i++;
+            }
+                for (int j = 0; j < nimed.Length; j++)
+            {
+                Console.WriteLine($"Indeks: {j}, Nimi: {nimed[j]}");
+            }
+                foreach (string nimi1 in nimed)
+            {
+                Console.WriteLine(nimi1.ToLower());
+            }
+            i = 0;
+            do
+            {
+                if (nimed[i] =="Mati")
+                {
+                    Console.WriteLine("Leidsin Mati! ");
+                    break;
+                }
+                Console.WriteLine($"Tere, {nimed[i]}!");
+                i++;
+            } while (i<nimed.Length);
+        }
+
 
         public static void arvudRuudud()
         {

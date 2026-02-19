@@ -11,8 +11,10 @@ namespace Naidis_csharp
     {
         public static void Main(string[] args)
         {
-            
-                Console.OutputEncoding = Encoding.UTF8;
+           
+           
+
+            Console.OutputEncoding = Encoding.UTF8;
             /*Console.WriteLine("1. Osa Anmdetüübid");
             string text = "Tere tulemast c#-i mailmaa!";
             Console.WriteLine($"Oli loodud muutuja tekst,mis võrdub: {text}");
@@ -218,6 +220,54 @@ namespace Naidis_csharp
                     osa3.GenereeriKorrutustabel(10, 10);
                    
                 }
+                else if (valik == "17")
+                {
+                    osa3.arvudRuudud();
+                }
+                else if (valik == "18")
+                {
+                    osa3.Positiivsed_ja_negatiivsed();
+                }
+                else if (valik == "20")
+                {
+                    osa3.arvudRuudud();
+                }
+                else if (valik == "21")
+                {
+                    osa3.rohkemkuiKeskmine();
+                }
+                else if (valik == "22")
+                {
+                    osa3.suurimJaIndeks();
+                }
+                else if (valik == "23")
+                {
+                    List<Inimene> Inimesed = new List<Inimene>();
+                    Inimene inimene1 = new Inimene("Vasya", 100);
+                    Inimesed.Add(inimene1);
+                    for (int i = 0; i < 5; i++)
+                    {
+                        Console.WriteLine($"Mis on {i + 1}. Nimi?:  ");
+                        string nimi = Console.ReadLine();
+                        Console.WriteLine($"Mis on {i + 1}. Inimese vanus?:  ");
+                        int vanus = int.Parse(Console.ReadLine());
+                        Inimene inimene = new Inimene(nimi, vanus);
+                        Inimesed.Add(inimene);
+                      
+                    }
+                    osa3.Statistika(Inimesed);
+                    var inimese = osa3.Statistika(Inimesed);
+                    Console.WriteLine($"vanuste arv: {inimese.Item1}");
+                    Console.WriteLine($"vanuste keskmine: {inimese.Item2}");
+                    Console.WriteLine($"vanim inimene: {inimese.Item3.Nimi}");
+                    Console.WriteLine($"noorim inimene: {inimese.Item4.Nimi}");
+                }
+                else if (valik == "24")
+                {
+                    string[] nimed = { "Anna", "Peeter", "Luara", "Markus", "Artur", "Sofia", "Rasmus", "Alina" };
+                    osa3.ÕpilastegaMängimine(nimed);
+                }
+
                 else
 
                 {
