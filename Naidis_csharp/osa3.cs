@@ -288,7 +288,66 @@ namespace Naidis_csharp
             Console.WriteLine("indeks: " + index);
 
         }
+
+
+        public static void binaariOsting()
+        {
+            int[] numbrid = { 12, 56, 78, 2, 90, 43, 88, 67 };
+            numbrid = numbrid.OrderBy(n => n).ToArray(); // Sortime massiivi kasvavalt
+            int vasak = 0;
+            int parem = numbrid.Length - 1;
+            while (vasak <= parem)
+            {
+                int keskmine = vasak + (parem - vasak) / 2; // Arvutame keskmise indeksi, vasak + on oluline, et vältida ülevoolu, kui vasak ja parem on suured arvud
+                //vasak = 4
+                //parem = 7
+                //keskmine = vasak + (parem - vasak) / 2
+                //          = 4 + (7 - 4) / 2
+                //          = 4 + 3 / 2
+                //          = 4 + 1
+                //          = 5
+                if (numbrid[keskmine] == 78)
+                {
+                    Console.WriteLine("Leidsin 78 indeksil: " + keskmine);
+                    return;
+                }
+                else if (numbrid[keskmine] < 78)
+                {
+                    vasak = keskmine + 1; // Otsime paremas pooles
+                }
+                else
+                {
+                    parem = keskmine - 1; // Otsime vasemas pooles
+                }
+            }
+        }
+
+        public static void PaariPaaritud()
+        {
+            List<int> Arvud = new List<int>();
+            int summa = 0;
+            int keskmine = 0;
+            for (int i = 0; i < 20; i++)
+            {
+                Arvud.Add(rnd.Next(1,21));
+            }
+            for (int i = 0; i < Arvud.Count; i++)
+            {
+
+           
+                if (Arvud[i] % 2 == 0)
+                {
+                    summa += Arvud[i];
+                }
+                else
+                {
+                   keskmine += Arvud[i];
+
+                }
+            }
+            Console.WriteLine($"Summa: {summa}, keskmine: {keskmine}");
+
+        }
+
     }
 }
-    
-

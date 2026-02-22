@@ -134,8 +134,34 @@ namespace Naidis_csharp
             int[] arvud = new int[5];
             while (true) { 
                     Console.WriteLine("2. Osa Funktsioonid");
-                    Console.WriteLine("vali funktioon \n1. Juku \n2. pinginabrid\n3. pindala\n4. soodus\n5. tem\n6. pikk\n7. pood\n8. MuudaElement\n9. Täida_massiiv\n10. foreachFunktisoon\n11. GenereeriRuudud\n12. exit ");
-                    string valik = Console.ReadLine();
+          
+                Console.WriteLine("1. Juku");
+                Console.WriteLine("2. pinginabrid");
+                Console.WriteLine("3. pindala");
+                Console.WriteLine("4. soodus");
+                Console.WriteLine("5. tem");
+                Console.WriteLine("6. pikk");
+                Console.WriteLine("7. pood");
+                Console.WriteLine("8. MuudaElement");
+                Console.WriteLine("9. Täida_massiiv");
+                Console.WriteLine("10. foreachFunktisoon");
+                Console.WriteLine("11. GenereeriRuudud");
+                Console.WriteLine("12. Täida_Doublemassiiv та аналіз");
+                Console.WriteLine("13. ostsElevantAra");
+                Console.WriteLine("14. arvumang");
+                Console.WriteLine("15. SuurimNeliarv");
+                Console.WriteLine("16. GenereeriKorrutustabel");
+                Console.WriteLine("17. arvudRuudud");
+                Console.WriteLine("18. Positiivsed_ja_negatiivsed");
+                Console.WriteLine("20. arvudRuudud (повторно)");
+                Console.WriteLine("21. Rohkem kui keskmine");
+                Console.WriteLine("22. suurimJaIndeks");
+                Console.WriteLine("23. Statistika Inimesed");
+                Console.WriteLine("24. ÕpilastegaMängimine");
+                Console.WriteLine("25. binaariOsting");
+                Console.WriteLine("26. PaariPaaritud");
+                Console.WriteLine("0. Välja");
+                string valik = Console.ReadLine();
                     if (valik == "1")
                     {
                         osa2.Juku();
@@ -266,6 +292,14 @@ namespace Naidis_csharp
                 {
                     string[] nimed = { "Anna", "Peeter", "Luara", "Markus", "Artur", "Sofia", "Rasmus", "Alina" };
                     osa3.ÕpilastegaMängimine(nimed);
+                }
+                else if (valik == "25")
+                {
+                    osa3.binaariOsting();
+                }
+                else if (valik == "26")
+                {
+                    osa3.PaariPaaritud();
                 }
 
                 else
