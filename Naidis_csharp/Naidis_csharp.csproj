@@ -5,6 +5,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <StartupObject>Naidis_csharp.start_page_Osa4cs</StartupObject>
   </PropertyGroup>
 
 </Project>

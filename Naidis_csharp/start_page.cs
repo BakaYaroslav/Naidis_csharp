@@ -133,7 +133,7 @@ namespace Naidis_csharp
            */
             int[] arvud = new int[5];
             while (true) { 
-                    Console.WriteLine("2. Osa Funktsioonid");
+                    Console.WriteLine("1, 2, 3 Osa Funktsioonid");
           
                 Console.WriteLine("1. Juku");
                 Console.WriteLine("2. pinginabrid");
