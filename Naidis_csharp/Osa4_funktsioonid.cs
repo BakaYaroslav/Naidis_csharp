@@ -11,6 +11,22 @@ namespace Naidis_csharp
 {
     internal class Osa4_funktsioonid
     {
+        static List<string> kuude_list = new List<string>()
+        {
+            "jaanuar",
+            "veebruar",
+            "märts",
+            "aprill",
+            "mai",
+            "juuni",
+            "juuli",
+            "august",
+            "september",
+            "oktoober",
+            "november",
+            "detsember"
+        };
+
         public static void Faili_kirjutamine()
         {
             try
@@ -94,7 +110,56 @@ namespace Naidis_csharp
                 Console.WriteLine("Viga failiga!");
             }
             return kuude_list;
+          
 
         }
+        public static List<string> Listi_muutmine_kuvamine()
+        {
+    
+            foreach (string k in kuude_list)
+            {
+                Console.WriteLine(k);
+            }
+
+            Console.WriteLine("sisesta kuu kustutamiseks");
+           
+            string kuu = Console.ReadLine();
+            kuude_list.Remove($"{kuu}");
+
+            // Muuda esimest elementi
+            if (kuude_list.Count > 0)
+                kuude_list[0] = "Veeel kuuu";
+
+            Console.WriteLine("--------------Kustutasime kuu-----------");
+
+            foreach (string k in kuude_list)
+            {
+                Console.WriteLine(k);
+            }
+
+            return kuude_list;
+        }
+        public static void Otsing_nimekirjast()
+        {
+            kuude_list = Ridade_lugemine_listiks("Kuud.txt");
+            Console.WriteLine("Sisesta kuu nimi, mida otsida:");
+            string otsitav = Console.ReadLine();
+
+            if (kuude_list.Contains(otsitav))
+                Console.WriteLine("Kuu " + otsitav + " on olemas.");
+            else
+                Console.WriteLine("Sellist kuud pole.");
+        }
+        public static void Listi_salvestamine()
+        {
+            string path = @"..\..\..\Kuud.txt
+";
+            File.WriteAllLines(path, kuude_list);
+            Console.WriteLine("Andmed on salvestatud.");
+
+        }
+
+
+
     }
 }

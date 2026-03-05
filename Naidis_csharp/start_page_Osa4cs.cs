@@ -34,6 +34,13 @@ namespace Naidis_csharp
                         Console.Write("failinimi: ");
                         fail = Console.ReadLine();
                         list =  Osa4_funktsioonid.Ridade_lugemine_listiks(fail);
+                        break;
+
+                    case "5": Osa4_funktsioonid.Listi_muutmine_kuvamine(); break;
+                    case "6": Osa4_funktsioonid.Otsing_nimekirjast(); break;
+                    case "7":Osa4_funktsioonid.Listi_salvestamine(); break;
+                        
+
 
 
                         break;
