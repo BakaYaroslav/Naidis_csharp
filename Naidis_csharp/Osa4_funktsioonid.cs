@@ -152,12 +152,16 @@ namespace Naidis_csharp
         }
         public static void Listi_salvestamine()
         {
-            string path = @"..\..\..\Kuud.txt
-";
+            string path = @"..\..\..\Kuud.txt";
             File.WriteAllLines(path, kuude_list);
             Console.WriteLine("Andmed on salvestatud.");
 
         }
+
+
+
+
+
 
 
 
