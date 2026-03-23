@@ -242,8 +242,6 @@ public class ulesanded
         {
             string retseptPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Tooded.txt");
 
-
-
             if (File.Exists(retseptPath))
             {
                 Console.WriteLine("Olemasolevad toidud");
@@ -329,9 +327,9 @@ public class ulesanded
         double kogus1 = lounasook / double.Parse(osad1[1]) * 100;
         double kogus2 = ohtusook / double.Parse(osad2[1]) * 100;
         Console.WriteLine("--------------------------------------------------------------------");
-        Console.WriteLine($"Hommikusöök: {osad0[0],-20} {kogus0:F0}g  ({hommikusook:F0} kcal)");
-        Console.WriteLine($"Lõunasöök:   {osad1[0],-20} {kogus1:F0}g  ({lounasook:F0} kcal)");
-        Console.WriteLine($"Õhtusöök:    {osad2[0],-20} {kogus2:F0}g  ({ohtusook:F0} kcal)");
+        Console.WriteLine($"Hommikusöök: {osad0[0]} {kogus0:F0}g  ({hommikusook:F0} kcal)");
+        Console.WriteLine($"Lõunasöök:   {osad1[0]} {kogus1:F0}g  ({lounasook:F0} kcal)");
+        Console.WriteLine($"Õhtusöök:    {osad2[0]} {kogus2:F0}g  ({ohtusook:F0} kcal)");
         Console.WriteLine("--------------------------------------------------------------------");
 
     }
@@ -340,6 +338,7 @@ public class ulesanded
     {
         Dictionary<string, string> eesti = new Dictionary<string, string>();
         string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Eesti.txt");
+       
         try
         {
             foreach (string rida in File.ReadAllLines(path))
@@ -347,6 +346,7 @@ public class ulesanded
                 string[] osad = rida.Split(';');
                 eesti.Add(osad[0], osad[1]);
             }
+
         }
         catch (Exception)
         {
