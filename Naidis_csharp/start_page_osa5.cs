@@ -115,7 +115,7 @@ namespace Naidis_csharp
                             Console.Write("Sisesta õpilase nimi: ");
                             string nimi = Console.ReadLine();
                             for (int j = 0; j < 5; j++)
-                            {
+                            { 
 
                                 Console.Write("Sisesta õpilase hinded (1-5): ");
                                 int hinne = int.Parse(Console.ReadLine());
