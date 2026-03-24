@@ -26,5 +26,28 @@ namespace Naidis_csharp
         }
     }
 }
-                
-         
+
+public class opilane
+{
+  
+
+    public string Nimi { get; set; }
+    public List<int>  Hinded { get; set; }
+
+
+    public opilane(string? nimi, List<int> hinded)
+    {
+        Nimi = nimi;
+        Hinded = hinded;
+    }
+}
+
+public class Lemmikloom
+{
+    public string Nimi { get; set; }
+    public string Liik { get; set; }
+    public int Vanus { get; set; }
+}
+
+
+

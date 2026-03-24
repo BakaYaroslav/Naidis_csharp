@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,7 +12,7 @@ namespace Naidis_csharp
         public static void Main(string[] args)
         {
             System.Console.WriteLine("osa5 funktsioonid");
-         
+
             string valik = Console.ReadLine();
             switch (valik)
             {
@@ -37,20 +38,20 @@ namespace Naidis_csharp
                 case "7":
                     while (true)
                         try
-                    {
-                        Console.Write("Sisesta oma nimi: ");
-                        string nimi = Console.ReadLine();
+                        {
+                            Console.Write("Sisesta oma nimi: ");
+                            string nimi = Console.ReadLine();
 
-                        Console.Write("Sisesta vanus: ");
-                        int vanus = int.Parse(Console.ReadLine());
-                            if (vanus < 0 && vanus > 100) 
-                                {
+                            Console.Write("Sisesta vanus: ");
+                            int vanus = int.Parse(Console.ReadLine());
+                            if (vanus < 0 && vanus > 100)
+                            {
                                 Console.WriteLine("Vanus peab olema vahemikus 0-100");
                                 continue;
-                                }
+                            }
 
-                        Console.Write("Sisesta sugu (mees/naine): ");
-                        string sugu = Console.ReadLine().ToLower();
+                            Console.Write("Sisesta sugu (mees/naine): ");
+                            string sugu = Console.ReadLine().ToLower();
                             if (sugu != "mees" && sugu != "naine")
                             {
                                 Console.WriteLine("Sugu peab olema 'mees' või 'naine'");
@@ -58,7 +59,7 @@ namespace Naidis_csharp
                             }
 
                             Console.Write("Sisesta pikkus (cm): ");
-                        double pikkus = double.Parse(Console.ReadLine());
+                            double pikkus = double.Parse(Console.ReadLine());
                             if (pikkus < 50 || pikkus > 250)
                             {
                                 Console.WriteLine("Pikkus peab olema vahemikus 50-250 cm");
@@ -66,7 +67,7 @@ namespace Naidis_csharp
                             }
 
                             Console.Write("Sisesta kaal (kg): ");
-                        double kaal = double.Parse(Console.ReadLine());
+                            double kaal = double.Parse(Console.ReadLine());
                             if (kaal < 20 || kaal > 300)
                             {
                                 Console.WriteLine("Kaal peab olema vahemikus 20-300 kg");
@@ -74,25 +75,25 @@ namespace Naidis_csharp
                             }
 
                             Console.Write("Sisesta aktiivsustase (1-5): ");
-                           
-                        int aktiivsustase =int.Parse(Console.ReadLine());
+
+                            int aktiivsustase = int.Parse(Console.ReadLine());
                             if (aktiivsustase < 1 || aktiivsustase > 5)
                             {
                                 Console.WriteLine("Aktiivsustase peab olema vahemikus 1-5");
                                 continue;
                             }
                             Inimene_osa5 kasutaja = new Inimene_osa5(nimi, vanus, sugu, pikkus, kaal, aktiivsustase);
-                        ulesanded.KaalKalkulaator(kasutaja);
-                        break;
-                    }
-                    catch (Exception)
-                    {
+                            ulesanded.KaalKalkulaator(kasutaja);
+                            break;
+                        }
+                        catch (Exception)
+                        {
 
-                        Console.WriteLine("Vale andmed");
-                    }
-                  
+                            Console.WriteLine("Vale andmed");
+                        }
 
-                   
+
+
                     break;
 
                 default:
@@ -103,9 +104,57 @@ namespace Naidis_csharp
                     ulesanded.Maakonnad_pealinnad();
                     break;
 
+                case "9":
+                    List<opilane> opilased = new List<opilane>();
+
+                    for (int i = 0; i < 3; i++)
+                    {
+                        try
+                        {
+                            List<int> hinded = new List<int>();
+                            Console.Write("Sisesta õpilase nimi: ");
+                            string nimi = Console.ReadLine();
+                            for (int j = 0; j < 5; j++)
+                            {
+
+                                Console.Write("Sisesta õpilase hinded (1-5): ");
+                                int hinne = int.Parse(Console.ReadLine());
+                                if (hinne > 1 || hinne < 5)
+                                {
+                                    hinded.Add(hinne);
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Hinded peab olema vahemikus 1-5");
+                                }
+                               
+                            }
+                            opilane uus_opilane = new opilane(nimi, hinded);
+                            opilased.Add(uus_opilane);
+                        }
+
+                        catch (Exception)
+                        {
+                            Console.WriteLine("Vale andmed");
+
+                        }
+                       
+                    }
+                    ulesanded.opilased(opilased);
+                    break;
+
+
+
+                    case "10":
+                    ulesanded.Tekstist_arvud();
+                    break;
+
+                    case "11":
+                    ulesanded.Lemmikloomade_register();
+
+                    break;
             }
         }
-	}
-
+    }
 }
 

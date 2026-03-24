@@ -427,4 +427,116 @@ public class ulesanded
         }
 
     }
+
+        public static void opilased(List<opilane> opilased)
+    {
+       
+        opilased = opilased.OrderByDescending(o => o.Hinded.Average()).ToList();
+        foreach (opilane opilane in opilased)
+        {
+            double keskmine = opilane.Hinded.Average();
+            Console.WriteLine($"{opilane.Nimi} keskminehind: {keskmine}");
+           
+        }
+        Console.WriteLine($"parim keskmine hind:  {opilased[0].Nimi} {opilased[0].Hinded.Average()} ");
+
+    }
+
+    public static void Tekstist_arvud()
+    {
+        int suuremKui = 0;
+        double[] masiiv = new double[5];
+        for (int i = 0; i < 5; i++)
+        {
+            Console.WriteLine($"sisesta {i}. arv: ");
+            masiiv[i] = double.Parse(Console.ReadLine());
+
+
+        }
+       
+        Array.Sort(masiiv);
+        foreach (double arv in masiiv)
+        {
+            Console.WriteLine(arv);
+            if (arv > masiiv.Average())
+            {
+                suuremKui++;
+            }
+        }
+            
+
+        double min = masiiv.Min();
+        double max = masiiv.Max();
+        double keskmine = masiiv.Average();
+
+        Console.WriteLine($"Maksimaalne arv masiivist: {max}");
+        Console.WriteLine($"Minimaalne arv masiivist: {min}");
+        Console.WriteLine($"Keskmine arv masiivist: {keskmine}");
+        Console.WriteLine($"Arvudest suurem kui keskmine: {suuremKui}");
+
+
+
+
+
+    }
+
+    public static void Lemmikloomade_register()
+    {
+
+        List<Lemmikloom> lemmikloomad = new List<Lemmikloom>();
+
+        for (int i = 0; i < 5; i++)
+        {
+            Lemmikloom loom = new Lemmikloom();
+
+            Console.Write($"Sisesta {i + 1}. looma nimi: ");
+            loom.Nimi = Console.ReadLine();
+
+            Console.Write($"Sisesta {i + 1}. looma liik (kass/koer jne): ");
+            loom.Liik = Console.ReadLine();
+
+            Console.Write($"Sisesta {i + 1}. looma vanus: ");
+            loom.Vanus = int.Parse(Console.ReadLine());
+
+            lemmikloomad.Add(loom);
+            Console.WriteLine("----------------------------");
+        }
+        foreach (Lemmikloom l in lemmikloomad)
+        {
+            if (l.Liik.ToLower() == "kass")
+            {
+                Console.WriteLine("Kass: " + l.Nimi + ", Liik: " + l.Liik + ", Vanus: " + l.Vanus);
+            }
+        }
+            double keskmineVanus = lemmikloomad.Average(l => l.Vanus);
+            lemmikloomad.Sort((x, y) => y.Vanus.CompareTo(x.Vanus));
+            string vaneimLoom = lemmikloomad[0].Nimi;
+
+
+
+            Console.WriteLine($"Vanim loom: {vaneimLoom}");
+            Console.WriteLine($"Keskmine vanus: {keskmineVanus}");
+            Console.WriteLine("kas sa tahad otsida mingi loom (jah/ei)?:  ");
+            string otsing = Console.ReadLine().ToLower();
+            if (otsing == "jah")
+            {
+                Console.WriteLine("Sisesta otsitav loom: ");
+                string ostsitudLoom = Console.ReadLine();
+                for (int lo = 0; lo < lemmikloomad.Count; lo++)
+                {
+                    if (ostsitudLoom == lemmikloomad[lo].Nimi)
+                    {
+                        Console.WriteLine($"Loom leitud: {lemmikloomad[lo].Nimi}, Liik: {lemmikloomad[lo].Liik}, Vanus: {lemmikloomad[lo].Vanus}");
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Looma ei leitud!");
+                        break;
+                }
+                }
+            }
+       
+    }
 }
+
