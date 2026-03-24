@@ -538,5 +538,72 @@ public class ulesanded
             }
        
     }
+
+
+
+    public static void ValuteCalculator()
+    {
+        List<Valute> valutes = new List<Valute>()
+        {
+            new Valute("UAH", 50.90),
+            new Valute("CZK", 24.46),
+            new Valute("USD", 1.16)
+        };
+        while (true) { 
+        Console.Write("Sisesta summa: ");
+        double summa = double.Parse(Console.ReadLine());
+
+        Console.Write("Sisesta valuut (UAH, CZK, USD): ");
+        string valuut = Console.ReadLine().ToUpper();
+
+        Console.WriteLine("otsi või müüa?");
+        string valik = Console.ReadLine().ToLower();
+
+
+        Valute selected = valutes.Find(v => v.Nimi == valuut);
+
+        if (selected != null)
+        {
+            if (valik == "müüa")
+            {
+                double eur = summa / selected.Kurs;
+
+                double value = eur * selected.Kurs;
+
+                Console.WriteLine($"1 EUR = {selected.Kurs} {selected.Nimi}");
+                Console.WriteLine($"{summa} {selected.Nimi} = {eur} EUR");
+                    break;
+                
+            }
+            else if (valik == "otsi")
+            {
+                double eur = summa * selected.Kurs;
+                double value = eur / selected.Kurs;
+                Console.WriteLine($"1 EUR = {selected.Kurs} {selected.Nimi}");
+                Console.WriteLine($"{summa} EUR = {eur} {selected.Nimi}");
+                    break;
+            }
+            else
+            {
+                Console.WriteLine("Vigane valik!");
+            }
+
+
+
+
+        }
+        else
+        {
+            Console.WriteLine("Meie bank ei tea selle valuut :( ");
+        }
+
+        }
+    }
+
+      
+
+
+
 }
+
 

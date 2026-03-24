@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Naidis_csharp
 {
@@ -106,6 +107,16 @@ public class Lemmikloom
     public string Liik { get; set; }
     public int Vanus { get; set; }
 }
+public class Valute
+{
+    public string Nimi { get; set; }
+    public double Kurs { get; set; }
 
+    public Valute(string nimi, double kurs)
+    {
+        Nimi = nimi;
+        Kurs = kurs;
+    }
+}
 
 

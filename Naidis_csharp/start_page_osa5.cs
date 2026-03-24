@@ -98,6 +98,11 @@ namespace Naidis_csharp
 
                     break;
 
+
+                     
+                        ulesanded.KaalKalkulaator(Inimene_osa5.GetInimene());
+                        break;
+
                 default:
                     Console.WriteLine("Valik puudub");
                     break;
@@ -153,7 +158,10 @@ namespace Naidis_csharp
 
                     case "11":
                     ulesanded.Lemmikloomade_register();
+                    break;
 
+                    case "12":
+                    ulesanded.ValuteCalculator();
                     break;
             }
         }
