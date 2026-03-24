@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -11,6 +11,8 @@ namespace Naidis_csharp
     {
         public static void Main(string[] args)
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            
             System.Console.WriteLine("osa5 funktsioonid");
 
             string valik = Console.ReadLine();
