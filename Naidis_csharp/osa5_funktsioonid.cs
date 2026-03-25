@@ -604,13 +604,13 @@ public class ulesanded
         };
         while (true) { 
         Console.Write("Sisesta summa: ");
-        double summa = double.Parse(Console.ReadLine());
-
-        Console.Write("Sisesta valuut (UAH, CZK, USD): ");
+        string arv = (Console.ReadLine()).Replace(".", ",");
+            double summa = Convert.ToDouble(arv);
+            Console.Write("Sisesta valuut (UAH, CZK, USD): ");
         string valuut = Console.ReadLine().ToUpper();
 
         Console.WriteLine("otsi või müüa?");
-        string valik = Console.ReadLine().ToLower();
+            string valik = Console.ReadLine().ToLower();
 
 
         Valute selected = valutes.Find(v => v.Nimi == valuut);

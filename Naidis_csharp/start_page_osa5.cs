@@ -12,7 +12,28 @@ namespace Naidis_csharp
         public static void Main(string[] args)
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
-            
+
+            Console.Clear();
+            Console.WriteLine("====================================");
+            Console.WriteLine("        OSA 5 – FUNKTSIOONID        ");
+            Console.WriteLine("====================================");
+            Console.WriteLine();
+
+            Console.WriteLine("Vali tegevus:");
+            Console.WriteLine("1  - Array näide");
+            Console.WriteLine("2  - Tuple näide");
+            Console.WriteLine("3  - List klassiga");
+            Console.WriteLine("4  - LinkedList");
+            Console.WriteLine("5  - Sõnastik (Dictionary)");
+            Console.WriteLine("6  - Toidu salvestamine faili");
+            Console.WriteLine("7  - Kaalukalkulaator");
+            Console.WriteLine("8  - Maakonnad ja pealinnad");
+            Console.WriteLine("9  - Õpilased");
+            Console.WriteLine("10 - Tekstist arvud");
+            Console.WriteLine("11 - Lemmikloomade register");
+            Console.WriteLine("12 - Valuuta kalkulaator");
+            Console.WriteLine();
+
             System.Console.WriteLine("osa5 funktsioonid");
 
             string valik = Console.ReadLine();
