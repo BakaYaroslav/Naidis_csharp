@@ -503,8 +503,6 @@ public class ulesanded
         {
             Console.WriteLine($"sisesta {i}. arv: ");
             masiiv[i] = double.Parse(Console.ReadLine());
-
-
         }
        
         Array.Sort(masiiv);
@@ -526,11 +524,6 @@ public class ulesanded
         Console.WriteLine($"Minimaalne arv masiivist: {min}");
         Console.WriteLine($"Keskmine arv masiivist: {keskmine}");
         Console.WriteLine($"Arvudest suurem kui keskmine: {suuremKui}");
-
-
-
-
-
     }
 
     public static void Lemmikloomade_register()
@@ -547,7 +540,7 @@ public class ulesanded
 
             Console.Write($"Sisesta {i + 1}. looma liik (kass/koer jne): ");
             loom.Liik = Console.ReadLine();
-
+            
             Console.Write($"Sisesta {i + 1}. looma vanus: ");
             loom.Vanus = int.Parse(Console.ReadLine());
 
@@ -563,11 +556,11 @@ public class ulesanded
         }
             double keskmineVanus = lemmikloomad.Average(l => l.Vanus);
             lemmikloomad.Sort((x, y) => y.Vanus.CompareTo(x.Vanus));
-            string vaneimLoom = lemmikloomad[0].Nimi;
+            string vanimLoom = lemmikloomad[0].Nimi;
 
 
 
-            Console.WriteLine($"Vanim loom: {vaneimLoom}");
+            Console.WriteLine($"Vanim loom: {vanimLoom}");
             Console.WriteLine($"Keskmine vanus: {keskmineVanus}");
             Console.WriteLine("kas sa tahad otsida mingi loom (jah/ei)?:  ");
             string otsing = Console.ReadLine().ToLower();
@@ -592,7 +585,46 @@ public class ulesanded
        
     }
 
+    public static void FilmideKogu()
+    {
+        List<Film> filmid = new List<Film>
+    {
+        new Film("Inception", 2010, "Sci-Fi"),
+        new Film("Titanic", 1997, "Romantika"),
+        new Film("The Matrix", 1999, "Sci-Fi"),
+        new Film("Avengers", 2012, "Action"),
+        new Film("Interstellar", 2014, "Sci-Fi")
+    };
 
+        Console.Write("Sisesta žanr: ");
+        string otsitavZanr = Console.ReadLine();
+
+        var leitud = filmid.Where(f => f.Zanr.ToLower() == otsitavZanr.ToLower()).ToList();
+
+        Console.WriteLine("Leitud filmid:");
+        foreach (var f in leitud)
+        {
+            Console.WriteLine($"{f.Pealkiri} ({f.Aasta})");
+        }
+
+       
+        var uusim = filmid.OrderByDescending(f => f.Aasta).FirstOrDefault();
+
+        Console.WriteLine($"Uusim film: {uusim.Pealkiri} ({uusim.Aasta})");
+
+       
+        var grupid = filmid.GroupBy(f => f.Zanr).ToDictionary(g => g.Key, g => g.ToList());
+
+        Console.WriteLine("Filmid žanrite kaupa:");
+        foreach (var g in grupid)
+        {
+            Console.WriteLine($"Žanr: {g.Key}");
+            foreach (var f in g.Value)
+            {
+                Console.WriteLine($" - {f.Pealkiri}");
+            }
+        }
+    }
 
     public static void ValuteCalculator()
     {
@@ -628,7 +660,7 @@ public class ulesanded
                     break;
                 
             }
-            else if (valik == "otsi")
+            else if (valik == "osta")
             {
                 double eur = summa * selected.Kurs;
                 double value = eur / selected.Kurs;

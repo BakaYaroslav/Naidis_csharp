@@ -32,7 +32,7 @@ namespace Naidis_csharp
             Console.WriteLine("10 - Tekstist arvud");
             Console.WriteLine("11 - Lemmikloomade register");
             Console.WriteLine("12 - Valuuta kalkulaator");
-            Console.WriteLine();
+            Console.WriteLine("13 - FilmideKogu");
 
             System.Console.WriteLine("osa5 funktsioonid");
 
@@ -77,6 +77,9 @@ namespace Naidis_csharp
 
                 case "12":
                     ulesanded.ValuteCalculator();
+                    break;
+                case "13":
+                    ulesanded.FilmideKogu();
                     break;
 
                 default:
