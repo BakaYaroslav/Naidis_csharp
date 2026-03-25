@@ -338,7 +338,26 @@ public class ulesanded
     {
         Dictionary<string, string> eesti = new Dictionary<string, string>();
         string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Eesti.txt");
-       
+
+        string[] data = new string[]
+            {
+                "Harjumaa;Tallinn",
+                "Hiiumaa;Kärdla",
+                "Ida-Virumaa;Jõhvi",
+                "Jõgevamaa;Jõgeva",
+                "Järvamaa;Paide",
+                "Läänemaa;Haapsalu",
+                "Lääne-Virumaa;Rakvere",
+                "Põlvamaa;Põlva",
+                "Pärnumaa;Pärnu",
+                "Raplamaa;Rapla",
+                "Saaremaa;Kuressaare",
+                "Tartumaa;Tartu",
+                "Valgamaa;Valga",
+                "Viljandimaa;Viljandi",
+                "Võrumaa;Võru"
+            };
+        File.WriteAllLines(path, data, Encoding.UTF8);
         try
         {
             foreach (string rida in File.ReadAllLines(path))
@@ -428,18 +447,52 @@ public class ulesanded
 
     }
 
-        public static void opilased(List<opilane> opilased)
+    public static void opilased()
     {
-       
-        opilased = opilased.OrderByDescending(o => o.Hinded.Average()).ToList();
-        foreach (opilane opilane in opilased)
-        {
-            double keskmine = opilane.Hinded.Average();
-            Console.WriteLine($"{opilane.Nimi} keskminehind: {keskmine}");
-           
-        }
-        Console.WriteLine($"parim keskmine hind:  {opilased[0].Nimi} {opilased[0].Hinded.Average()} ");
+        List<opilane> opilased = new List<opilane>();
 
+        for (int i = 0; i < 3; i++)
+        {
+            try
+            {
+                List<int> hinded = new List<int>();
+                Console.Write("Sisesta õpilase nimi: ");
+                string nimi = Console.ReadLine();
+                for (int j = 0; j < 5; j++)
+                {
+
+                    Console.Write("Sisesta õpilase hinded (1-5): ");
+                    int hinne = int.Parse(Console.ReadLine());
+                    if (hinne > 1 || hinne < 5)
+                    {
+                        hinded.Add(hinne);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Hinded peab olema vahemikus 1-5");
+                    }
+
+                }
+                opilane uus_opilane = new opilane(nimi, hinded);
+                opilased.Add(uus_opilane);
+            }
+
+            catch (Exception)
+            {
+                Console.WriteLine("Vale andmed");
+
+            }
+
+            opilased = opilased.OrderByDescending(o => o.Hinded.Average()).ToList();
+            foreach (opilane opilane in opilased)
+            {
+                double keskmine = opilane.Hinded.Average();
+                Console.WriteLine($"{opilane.Nimi} keskminehind: {keskmine}");
+
+            }
+            Console.WriteLine($"parim keskmine hind:  {opilased[0].Nimi} {opilased[0].Hinded.Average()} ");
+
+        }
     }
 
     public static void Tekstist_arvud()
